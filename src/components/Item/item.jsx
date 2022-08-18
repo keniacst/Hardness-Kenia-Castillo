@@ -1,9 +1,11 @@
 const Item = (props) => {
-    return <div style={mystyle}> {props.titulo} </div>
+
+    return <a href="contact.asp" style={mystyle}> {props.titulo} </a>
 }
 
-
 let mystyle = {
+    textDecoration: "none",
+    color: "black",
     padding: "40px"
 }
 
