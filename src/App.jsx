@@ -1,15 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar';
+import ItemListContainer from './components/ItemListContainer/itemlistcontainer';
+import Navbarlogo from './components/Navbarlogo/Navbarlogo';
 
 const App = () => {
   return (
     <div className="App">
-      <Navbar />
       <header className="App-header">
-
-
+      <Navbarlogo />
       </header>
+      <ItemListContainer greeting="Hola! Este es mi Item List Container" />
     </div>
   );
 }
