@@ -6,7 +6,15 @@ import CartWidget from '../CartWidget/cartwidget';
 
 const Navbarlogo = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar ref={el => {
+      if (el) {
+        el.style.setProperty('--bs-navbar-color', '#efd8ff', 'important');
+        el.style.setProperty('--bs-navbar-hover-color', 'rgb(245 230 255)', 'important');
+        el.style.setProperty('--bs-navbar-active-color', 'rgb(245 230 255)', 'important');
+      } 
+    }}
+    
+    collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="#home"><div style={{width: "120px"}}> <img src="./logoblanco.png" style= {{width:"100%"}} alt="logo" /></div></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
