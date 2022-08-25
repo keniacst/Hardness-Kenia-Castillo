@@ -1,11 +1,8 @@
 import { useState } from "react";
 
-const ItemCounter = () => {
-  const [count, setCount] = useState(0)
-  const stock = 200
-  return (
-
-    <div className= "ItemCounter">
+const ItemCount = ({stock=200, initial=0, onAdd}) => {
+  const [count, setCount] = useState(initial)
+  return (<div className= "ItemCounter">
       <button className="minusplus" onClick={() => {
         setCount(count === 0 ? count : count - 1);
         console.log(count)
@@ -23,4 +20,4 @@ const ItemCounter = () => {
   )
 };
 
-export default ItemCounter;
+export default ItemCount;
