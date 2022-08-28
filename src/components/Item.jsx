@@ -7,15 +7,18 @@ const Item = (props) => {
         <Card.Img variant="top" src={props.image} style={{width: "200px"}} />
         <Card.Body>
           <Card.Title>  {props.title} </Card.Title>
-          <Card.Text>
-            ID: {props.id} 
-            {props.description} {' '}
-            ${props.price}
-          </Card.Text>
+          <p> ID: {props.id}  </p>           
+          {/* <Card.Text component={'span'} >
+            
+          </Card.Text> */}
+          {props.description} {' '}
+          <h5>${props.price} </h5>
           {props.children}
-          <ItemCount />
+          
         </Card.Body>
         <Card.Footer>
+        <ItemCount />
+        
           {/* <small className="text-muted">Last updated some mins ago</small>  */}
 
         </Card.Footer>

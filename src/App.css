@@ -69,14 +69,14 @@
 .Card {
   display: flex;
   align-items: center;
-  width: 300px;
-  height: 400px !important;
+  width: 300px !important;
+  height: 430px !important;
   margin: 20px;
 }
 
 
 .ItemCounter {
-  background-color: #fdf4ff;
+  background-color: #ffffff;
   border: 2px solid #c29bdb;
   width: 15rem;
   height: 2.5rem;
