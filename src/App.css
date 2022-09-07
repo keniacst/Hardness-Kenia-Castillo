@@ -51,7 +51,7 @@
   --bs-navbar-color: #efd8ff !important;
   --bs-navbar-hover-color: rgb(245 230 255) !important;
   --bs-navbar-active-color: rgb(245 230 255) !important;
-  border-bottom: #dcaaff solid 3px;
+  border-bottom: #ffd2fe solid 10px;
 }
 
 /* Item List Container  */
