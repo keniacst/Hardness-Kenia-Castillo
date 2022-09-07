@@ -1,5 +1,4 @@
 import Card from 'react-bootstrap/Card';
-import ItemCount from './ItemCounter';
 
 const Item = (props) => {
   return (
@@ -17,7 +16,7 @@ const Item = (props) => {
           
         </Card.Body>
         <Card.Footer>
-        <ItemCount />
+        
         
           {/* <small className="text-muted">Last updated some mins ago</small>  */}
 

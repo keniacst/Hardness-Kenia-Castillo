@@ -10,7 +10,7 @@ const ItemList = () => {
       const response = await
         fetch('https://api.mercadolibre.com/sites/MLA/search?q=libros$');
       let data = await response.json();
-      setProducts(data.results)
+      setProducts(data.results.slice(0, 12))
     } catch (e) {
       console.log(e);
     }
@@ -22,8 +22,6 @@ const ItemList = () => {
 
 
   return (
-
-    <div>
       <CardGroup className="card-group">
       {products.map((product, index) => {
         return (
@@ -33,8 +31,6 @@ const ItemList = () => {
         )
       })}
       </CardGroup>
-    </div>
-
   )
 }
 

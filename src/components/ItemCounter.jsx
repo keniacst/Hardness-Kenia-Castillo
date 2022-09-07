@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const ItemCount = ({stock=200, initial=0, onAdd}) => {
   const [count, setCount] = useState(initial)
+  
   return (<div className= "ItemCounter">
       <button className="minusplus" onClick={() => {
         setCount(count === 0 ? count : count - 1);
