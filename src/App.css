@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   height: 100%;
+
 }
 
 .App-logo {
@@ -16,7 +17,7 @@
 
 
 .App-link {
-  color: #61dafb;
+  color: #3a0071;
 }
 
 @keyframes App-logo-spin {
@@ -31,10 +32,8 @@
 
 /* Bootstrap button custom */
 .custom-class {
-  /* background: rgb(170, 21, 178) !important; */
-  --bs-btn-bg: #ae8fc1 !important;
-  --bs-btn-hover-bg: #ae8fc1 !important;
-  ;
+  --bs-btn-bg: #cca3e5 !important;
+    --bs-btn-hover-bg: #b382d0 !important;
   /* --bs-btn-color: rgb(35, 35, 35) !important;; */
   --bs-btn-border-color: #c48ee6 !important;
   --bs-btn-hover-border-color: #c48ee6 !important;
@@ -56,31 +55,37 @@
 
 /* Item List Container  */
 .ItemListContainer {
-  color: white;
-  padding: 1rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
+  padding: 20px;
 }
 
-.TestCard {
+/* .TestCard {
   width: 18rem !important;
   margin-left: 20px;
-}
+} */
 
 .Card {
-  display: flex;
+  /* display: flex;
   align-items: center;
   width: 300px !important;
   height: 430px !important;
-  margin: 20px;
-}
-
+  margin: 20px; */
+  width: 270px !important;
+  height: 100% !important;
+  margin: 0 auto;
+  /* margin-right: 1rem; */
+  /* margin-bottom: 1rem; */
+  /* text-align: initial; */
+  /* height: 100% !important; */
+  /* height: 400px!important; */
+  -webkit-box-shadow: 0px 0px 7px -1px rgb(0 0 0 / 10%);}
 
 .ItemCounter {
   background-color: #ffffff;
   border: 2px solid #e1e1e1;
   width: 8rem;
   height: 2.5rem;
-  margin: 0;
+  margin-bottom: 10px;
   display: flex;
   border-radius: 5px;
   align-items: center;
@@ -118,3 +123,30 @@
   text-align: initial;
 }
 
+.Card-Item{
+  margin-bottom: 20px;
+}
+
+.card-img {
+  width: 100% !important;
+  object-fit: cover;
+  height: 250px;
+}
+
+.card-bodyy {
+  flex: 1 1 auto;
+  /* height: 50px; */
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+}
+
+.no-style{
+  color: inherit;
+  text-decoration: inherit;
+  --bs-link-hover-color: #5a409c;
+}
+
+.add-to-cart{
+  display: flex;
+  flex-direction: column;
+}

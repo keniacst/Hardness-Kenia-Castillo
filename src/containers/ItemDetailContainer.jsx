@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "../components/ItemDetail";
 
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([])
+  const {idProduct} = useParams();
 
   const getItem = async () => {
     try {
-      const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=libros$');
+      const response = await fetch(`https://api.mercadolibre.com/items/${idProduct}`);
       let data = await response.json();
-      setProduct(data.results[0])
+      setProduct(data);
+      
     } catch (e) {
       console.log(e);
     }
@@ -21,10 +24,9 @@ const ItemDetailContainer = () => {
 
   return (
     <>
-    <ItemDetail img = {product.thumbnail} price={product.price}  title={product.title} 
+    <ItemDetail img={product.thumbnail} price={product.price}  title={product.title} 
     currency= {product.currency_id}  description= {product.description} condition={product.condition} />
     </>
-
   )
 }
 

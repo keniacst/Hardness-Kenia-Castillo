@@ -1,10 +1,12 @@
 
+import { useParams } from "react-router-dom";
 import ItemList from "../components/ItemList";
 
-const ItemListContainer = (props) => {
-  return (<div className="ItemListContainer"> {props.greeting} 
-  
-  <ItemList/>
+const ItemListContainer = () => {
+  const {idCategory} = useParams();
+
+  return (<div className="ItemListContainer"> 
+  <ItemList category={idCategory} />
   </div>
   )
 }
