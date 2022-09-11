@@ -5,6 +5,7 @@ import ItemList from "../components/ItemList";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([])
+  const [loaded, setLoaded] = useState(false)
   const {idCategory} = useParams();
 
   const searchProducts = async () => {
@@ -15,6 +16,7 @@ const ItemListContainer = () => {
       let data = await response.json();
       // setProducts(data.results.slice(0, 15))
       setProducts(data.results)
+      setLoaded(true)
       // console.log(data.results[0].category_id)
     } catch (e) {
       console.log(e);
@@ -44,11 +46,15 @@ const ItemListContainer = () => {
     }
   })
 
-
-  return (<div className="ItemListContainer"> 
-  <ItemList products={products} />
-  </div>
-  )
+  if (!loaded) {
+    return <h1> Loading... </h1>
+  }
+  else {
+    return (<div className="ItemListContainer"> 
+    <ItemList products={products} />
+    </div>
+    )
+  }
 }
 
 export default ItemListContainer;
