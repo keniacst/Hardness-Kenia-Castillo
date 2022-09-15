@@ -1,10 +1,13 @@
-import { Button, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import numberWithDots from "../Utils";
+import { useState } from "react";
 
 const ItemDetail = (props) => {
+  const [purchase, setPurchase] = useState(false);
   const onAdd = (quantityToAdd) => {
-    // hemos recibido un evento del ItemCount
+    setPurchase(true);
+    console.log("quantityToAdd en onAdd " + quantityToAdd);
   };
 
   return (
@@ -16,17 +19,13 @@ const ItemDetail = (props) => {
           <hr />
           <p> Condición: {props.condition} </p>
           <h4>
-            {" "}
             $ {numberWithDots(props.price)} {props.currency}
           </h4>
-          {/* La api no tiene descripción de productos */}
           <p> {props.description} </p>
           Aquí pondría mi descripción, si tuviera unaa
           <hr />
         </div>
-        <div className="add-to-cart">
-          <ItemCount />
-        </div>
+        <ItemCount onAdd={onAdd} initial={1} stock={200} purchase={purchase} />
       </div>
     </div>
   );

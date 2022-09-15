@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   height: 100%;
-
 }
 
 .App-logo {
@@ -14,7 +13,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 
 .App-link {
   color: #3a0071;
@@ -31,10 +29,9 @@
 }
 
 /* Bootstrap button custom */
-.custom-class {
-  --bs-btn-bg: #cca3e5 !important;
-    --bs-btn-hover-bg: #b382d0 !important;
-  /* --bs-btn-color: rgb(35, 35, 35) !important;; */
+.btn-addtocart {
+  --bs-btn-bg: #a376ec !important;
+  --bs-btn-hover-bg: #8965c4 !important;
   --bs-btn-border-color: #c48ee6 !important;
   --bs-btn-hover-border-color: #c48ee6 !important;
   --bs-btn-focus-shadow-rgb: disable !important;
@@ -78,9 +75,10 @@
   /* text-align: initial; */
   /* height: 100% !important; */
   /* height: 400px!important; */
-  -webkit-box-shadow: 0px 0px 7px -1px rgb(0 0 0 / 10%);}
+  -webkit-box-shadow: 0px 0px 7px -1px rgb(0 0 0 / 10%);
+}
 
-.ItemCounter {
+.item-counter {
   background-color: #ffffff;
   border: 2px solid #e1e1e1;
   width: 8rem;
@@ -123,7 +121,7 @@
   text-align: initial;
 }
 
-.Card-Item{
+.Card-Item {
   margin-bottom: 20px;
 }
 
@@ -140,13 +138,20 @@
   color: var(--bs-card-color);
 }
 
-.no-style{
+.no-style {
   color: inherit;
   text-decoration: inherit;
   --bs-link-hover-color: #5a409c;
 }
 
-.add-to-cart{
+.purchase {
   display: flex;
   flex-direction: column;
+}
+
+.btn-checkout {
+  --bs-btn-bg: #0089ed !important;
+  --bs-btn-hover-bg: #0172da !important;
+  --bs-btn-border-color: #0082b8 !important;
+  --bs-btn-focus-shadow-rgb: disable !important;
 }

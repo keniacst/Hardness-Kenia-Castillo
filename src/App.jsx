@@ -3,8 +3,8 @@ import ItemListContainer from "./containers/ItemListContainer";
 import Navbarlogo from "./components/NavbarLogo";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
-import TestEvent from "./components/TestEvent";
-import { Button } from "bootstrap";
+import CartContainer from "./containers/CartContainer";
+
 const App = () => {
   return (
     <div className="App">
@@ -18,6 +18,7 @@ const App = () => {
           />
           <Route path="/item/:idProduct" element={<ItemDetailContainer />} />
           <Route path="/category/:idCategory" element={<ItemListContainer />} />
+          <Route path="/cart" element={<CartContainer/>} />
         </Routes>
       </BrowserRouter>
     </div>

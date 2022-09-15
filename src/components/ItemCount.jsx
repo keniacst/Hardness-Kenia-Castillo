@@ -1,17 +1,17 @@
 import { Button } from "react-bootstrap";
 import { useState } from "react";
-import TestEvent from "./TestEvent";
+import { Link } from "react-router-dom";
 
-const ItemCount = ({ stock = 200, initial = 0, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, purchase }) => {
   const [count, setCount] = useState(initial);
 
   return (
-    <>
-      <div className="ItemCounter">
+    <div className="purchase">
+      <div className="item-counter">
         <button
           className="minusplus"
           onClick={() => {
-            setCount(count === 0 ? count : count - 1);
+            setCount(count === 1 ? count : count - 1);
           }}
         >
           -
@@ -26,8 +26,18 @@ const ItemCount = ({ stock = 200, initial = 0, onAdd }) => {
           +
         </button>
       </div>
-      <Button className="custom-class"> Agregar al carrito </Button>
-    </>
+      {purchase ? 
+      <Button  as={Link} to={`/cart`}
+        className="btn-checkout">
+        Finalizar compra
+      </Button> 
+      : 
+      <Button
+        className="btn-addtocart"
+        onClick={() => { onAdd(count) }}>
+        Agregar al carrito
+      </Button>}
+    </div>
   );
 };
 
