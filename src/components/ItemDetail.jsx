@@ -1,33 +1,58 @@
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import numberWithDots from "../Utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContex";
 
-const ItemDetail = (props) => {
+const ItemDetail = ({ img, title, price, id, currency }) => {
   const [purchase, setPurchase] = useState(false);
+  const { addItem, removeItem, isInCart } = useContext(CartContext);
+
   const onAdd = (quantityToAdd) => {
     setPurchase(true);
-    console.log("quantityToAdd en onAdd " + quantityToAdd);
+    addItem({ id: id, name: title, price: price }, quantityToAdd);
+  };
+
+  const removeItemClickHandler = () => {
+    removeItem(id);
+    setPurchase(false);
+  };
+
+  const isInCartClickHandler = () => {
+    console.log(isInCart(id));
   };
 
   return (
-    <div className="ItemDetail">
-      <Image src={props.img} style={{ width: "400px" }} alt="product" />
-      <div className="wrapper">
-        <div className="ItemDetailText">
-          <h3> {props.title} </h3>
-          <hr />
-          <p> Condición: {props.condition} </p>
-          <h4>
-            $ {numberWithDots(props.price)} {props.currency}
-          </h4>
-          <p> {props.description} </p>
-          Aquí pondría mi descripción, si tuviera unaa
-          <hr />
+    <>
+      {img ? (
+        <div className="ItemDetail">
+          <Image src={img} style={{ width: "400px" }} alt="product" />
+          <div className="wrapper">
+            <div className="ItemDetailText">
+              <h3> {title} </h3>
+              <hr />
+              <p> Id: {id} </p>
+              <h4>
+                $ {numberWithDots(price)} {currency}
+              </h4>
+              Aquí pondría mi descripción, si tuviera unaa
+              <hr />
+            </div>
+            <ItemCount
+              onAdd={onAdd}
+              initial={1}
+              stock={200}
+              purchase={purchase}
+              removeItemClickHandler={removeItemClickHandler}
+            />
+            <Button onClick={isInCartClickHandler}> Is in cart? </Button>
+          </div>
         </div>
-        <ItemCount onAdd={onAdd} initial={1} stock={200} purchase={purchase} />
-      </div>
-    </div>
+      ) : (
+        <h1> Loading ...</h1>
+      )}
+    </>
   );
 };
 

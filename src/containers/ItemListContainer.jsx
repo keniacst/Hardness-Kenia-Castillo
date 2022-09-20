@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../components/ItemList";
+import { CartContext } from "../contexts/CartContex";
 
 const ItemListContainer = () => {
+  const { cart } = useContext(CartContext)
   const [products, setProducts] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const { idCategory } = useParams();
@@ -13,7 +15,6 @@ const ItemListContainer = () => {
         "https://api.mercadolibre.com/sites/MLC/search?q=tecnologia$"
       );
       let data = await response.json();
-      // setProducts(data.results.slice(0, 15))
       setProducts(data.results);
       setLoaded(true);
     } catch (e) {
@@ -21,36 +22,42 @@ const ItemListContainer = () => {
     }
   };
 
-  const searchProductsByCategory = async () => {
-    let category = idCategory;
+  const byCategory = useCallback(async () => {
     try {
       const response = await fetch(
         `https://api.mercadolibre.com/sites/MLC/search?category=${idCategory}`
       );
       let data = await response.json();
       setProducts(data.results);
+      setLoaded(true);
     } catch (e) {
       console.log(e);
     }
-  };
+  }, [idCategory]);
 
   useEffect(() => {
-    if (typeof idCategory == "undefined") {
-      searchProducts();
-    } else {
-      searchProductsByCategory();
-    }
-  });
+    console.log(cart)
+    setTimeout( () => {
+      if (typeof idCategory == "undefined") {
+        searchProducts();
+      } else {
+        byCategory();
+      }
+    }, 200);
+    
+  }, [cart, idCategory, byCategory]);
 
-  if (!loaded) {
-    return <h1> Loading... </h1>;
-  } else {
-    return (
-      <div className="ItemListContainer">
-        <ItemList products={products} />
-      </div>
-    );
-  }
+  return (
+    <>
+      {loaded? (
+        <div className="ItemListContainer">
+          <ItemList products={products} />
+        </div>
+      ) : (
+        <h1> Loading... </h1>
+      )}
+    </>
+  );
 };
 
 export default ItemListContainer;

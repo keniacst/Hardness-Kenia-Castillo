@@ -26,11 +26,10 @@ const ItemDetailContainer = () => {
     <>
       <ItemDetail
         img={product.thumbnail}
+        id={product.id}
         price={product.price}
         title={product.title}
         currency={product.currency_id}
-        description={product.description}
-        condition={product.condition}
       />
     </>
   );
