@@ -41,7 +41,7 @@ const Navbarlogo = () => {
           </Nav>
           <Nav>
             <Nav.Link href="#contact">Contacto</Nav.Link>
-            <Nav.Link href="#cart">
+            <Nav.Link as={Link} to={`/cart`} >
               <CartWidget />
             </Nav.Link>
           </Nav>

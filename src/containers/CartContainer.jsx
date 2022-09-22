@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
+import Cart from "../components/Cart";
 import { CartContext } from "../contexts/CartContex";
 
 const CartContainer = () => {
-  const { cart, emptyCart } = useContext(CartContext);
+  const { cart, emptyCart, totalCart } = useContext(CartContext);
 
   const emptyCartClickHandler = () => {
     emptyCart();
@@ -11,20 +12,8 @@ const CartContainer = () => {
 
   return (
     <>
-      {/* <div>
-        El cart es{" "}
-        {cart.map((item, index) => {
-          return (
-          <div key={index}>
-            <h1> {item.name} </h1>
-          </div>)
-        })}
-      </div> */}
+      <Cart products={cart} total={totalCart}/>
       <Button onClick={emptyCartClickHandler}> EmptyCart </Button>
-
-      {/* </div>
-      {true ? <> El usuario es: a </> : <> No hay usuario </>}
-      <Button onClick={emptyCartClickHandler}> EmptyCart </Button> */}
     </>
   );
 };

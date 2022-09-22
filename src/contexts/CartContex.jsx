@@ -16,16 +16,24 @@ const CartProvider = ({ children }) => {
   };
 
   const removeItem = (itemId) => {
-    setCart(cart.filter((itm) => itm.id !== itemId));
+    setCart(cart.filter((item) => item.id !== itemId));
   };
 
   const isInCart = (itemId) => {
-    return cart.some((itm) => itm.id === itemId);
+    return cart.some((item) => item.id === itemId);
+  };
+
+  const totalCart = () => {
+    var prices = cart.map(item => item.price);
+    return prices.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+      0
+    );
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, emptyCart, addItem, removeItem, isInCart }}
+      value={{ cart, emptyCart, addItem, removeItem, isInCart,totalCart }}
     >
       {children}
     </CartContext.Provider>
