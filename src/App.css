@@ -99,6 +99,7 @@
 
 .num {
   font-size: 1.2rem;
+  text-align: center;
   width: 39%;
 }
 
@@ -155,4 +156,9 @@
   --bs-btn-hover-bg: #0172da !important;
   --bs-btn-border-color: #0082b8 !important;
   --bs-btn-focus-shadow-rgb: disable !important;
+}
+
+.cart {
+  -webkit-box-sizing: border-box; 
+  padding: 3%;
 }

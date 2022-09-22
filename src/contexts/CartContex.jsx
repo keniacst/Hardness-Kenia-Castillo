@@ -24,7 +24,7 @@ const CartProvider = ({ children }) => {
   };
 
   const totalCart = () => {
-    var prices = cart.map(item => item.price);
+    var prices = cart.map((item) => item.price*item.quantity);
     return prices.reduce(
       (previousValue, currentValue) => previousValue + currentValue,
       0
@@ -33,7 +33,7 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, emptyCart, addItem, removeItem, isInCart,totalCart }}
+      value={{ cart, emptyCart, addItem, removeItem, isInCart, totalCart }}
     >
       {children}
     </CartContext.Provider>

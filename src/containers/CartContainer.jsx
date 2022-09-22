@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { Button } from "react-bootstrap";
 import Cart from "../components/Cart";
 import { CartContext } from "../contexts/CartContex";
 
 const CartContainer = () => {
-  const { cart, emptyCart, totalCart } = useContext(CartContext);
+  const { cart, emptyCart, totalCart, removeItem } = useContext(CartContext);
 
   const emptyCartClickHandler = () => {
     emptyCart();
@@ -12,8 +11,11 @@ const CartContainer = () => {
 
   return (
     <>
-      <Cart products={cart} total={totalCart}/>
-      <Button onClick={emptyCartClickHandler}> EmptyCart </Button>
+      <Cart
+        products={cart}
+        total={totalCart}
+        emptyCartClickHandler={emptyCartClickHandler}
+      />
     </>
   );
 };
