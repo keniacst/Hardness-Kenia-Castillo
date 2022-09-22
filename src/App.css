@@ -159,6 +159,40 @@
 }
 
 .cart {
-  -webkit-box-sizing: border-box; 
-  padding: 3%;
+  -webkit-box-sizing: border-box;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 2%;
+}
+
+.total-cart {
+  background: #f5ecff;
+  border-color: white;
+  --bs-table-hover-bg: rgba(255, 239, 239, 0.075);
+}
+
+.empty-cart {
+  background: #f4f4ff;
+  padding: 2%;
+  border-top: #e0ceff solid 4px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.icon {
+  margin-right: 2%;
+}
+
+.back-store {
+  --bs-btn-bg: #c4a2ff !important;
+    --bs-btn-color: white !important;
+    /* padding: 1%; */
+    /* padding-inline: inherit; */
+    /* width: max-content; */
+    --bs-btn-border-color: disable !important;
+}
+
+.cart-widget {
+  display: flex;
+
 }

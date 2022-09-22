@@ -1,7 +1,7 @@
 import { Button, Image } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import numberWithDots from "../Utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContex";
 
@@ -11,7 +11,7 @@ const ItemDetail = ({ img, title, price, id, currency }) => {
 
   const onAdd = (quantityToAdd) => {
     setPurchase(true);
-    addItem({ id: id, name: title, price: price }, quantityToAdd);
+    addItem({ id: id, name: title, price: price, img: img }, quantityToAdd);
   };
 
   const removeItemClickHandler = () => {

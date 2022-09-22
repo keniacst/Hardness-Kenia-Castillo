@@ -18,4 +18,4 @@ root.render(
 reportWebVitals();
 
 // Background color
-document.body.style = 'background:  #eceff4;';
+document.body.style = 'background:  #f7faff;';

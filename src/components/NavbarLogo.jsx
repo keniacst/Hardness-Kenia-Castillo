@@ -12,36 +12,31 @@ const Navbarlogo = () => {
       <Container>
         <Navbar.Brand>
           <Link to={process.env.PUBLIC_URL}>
-            {" "}
             <img src={logo} style={{ width: "120px" }} alt="logo" />{" "}
-          </Link>{" "}
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to={process.env.PUBLIC_URL}>
-              {" "}
-              Sobre nosotros
+              Inicio
             </Nav.Link>
             <NavDropdown title="Categorias" id="collasible-nav-dropdown">
               <NavDropdown.Item as={Link} to={`/category/${"MLC3697"}`}>
-                Audifonos{" "}
+                Audifonos
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={`/category/${"MLC157688"}`}>
-                Cargadores{" "}
+                Cargadores
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={`/category/${"MLC1672"}`}>
                 Hard Drive y SSD
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Otros (no funcional)
-              </NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
             </NavDropdown>
           </Nav>
           <Nav>
             <Nav.Link href="#contact">Contacto</Nav.Link>
-            <Nav.Link as={Link} to={`/cart`} >
+            <Nav.Link as={Link} to={`/cart`}>
               <CartWidget />
             </Nav.Link>
           </Nav>

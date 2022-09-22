@@ -9,12 +9,17 @@ const CartContainer = () => {
     emptyCart();
   };
 
+  const removeItemClickHandler = (itemId) => {
+    removeItem(itemId);
+  }
+
   return (
     <>
       <Cart
         products={cart}
         total={totalCart}
         emptyCartClickHandler={emptyCartClickHandler}
+        removeItemClickHandler={removeItemClickHandler}
       />
     </>
   );
