@@ -1,47 +1,37 @@
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Counter from "./Counter";
+import { FaCheck, FaTrash } from "react-icons/fa";
 const ItemCount = ({
   stock,
   initial,
   onAdd,
-  purchase,
+  quantityItemCheck,
   removeItemClickHandler,
 }) => {
   const [count, setCount] = useState(initial);
 
+  const minusClickHandler = () => {
+    setCount(count === 1 ? count : count - 1)
+  };
+
+  const plusClickHandler = () => {
+    setCount(count < stock ? count + 1 : count)
+  };
+
   return (
     <div className="purchase">
-      <div className="item-counter">
-        <button
-          className="minusplus"
-          onClick={() => {
-            setCount(count === 1 ? count : count - 1);
-          }}
-        >
-          -
-        </button>
-        <div className="num"> {count} </div>
-        <button
-          className="minusplus"
-          onClick={() => {
-            setCount(count < stock ? count + 1 : count);
-          }}
-        >
-          +
-        </button>
-      </div>
-      {purchase ? (
+      <Counter minusClickHandler={minusClickHandler} plusClickHandler={plusClickHandler} count={count}/>
+      {count === quantityItemCheck() ? (
         <>
           <Button as={Link} to={`/cart`} className="btn-checkout">
-            Finalizar compra
+            <FaCheck className="new-icon" /> Finalizar compra
           </Button>
-
           <Button onClick={() => {
             removeItemClickHandler()
-          }} variant="danger">
-            Eliminar del carrito
+          }} className="btn-deletefromcart">
+            <FaTrash className="new-icon" /> Eliminar del carrito
           </Button>
         </>
       ) : (

@@ -5,6 +5,7 @@ const ItemList = (props) => {
   let products = props.products;
 
   return (
+    <> 
     <CardGroup className="card-group">
       {products.map((product, index) => {
         return (
@@ -20,6 +21,7 @@ const ItemList = (props) => {
         );
       })}
     </CardGroup>
+    </>
   );
 };
 

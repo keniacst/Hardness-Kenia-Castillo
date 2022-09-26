@@ -50,9 +50,11 @@ const ItemListContainer = () => {
   return (
     <>
       {loaded? (
+        <> <h1> {typeof idCategory == "undefined"? <> Productos </> : <> {idCategory} </>} </h1>  
         <div className="ItemListContainer">
           <ItemList products={products} />
         </div>
+        </>
       ) : (
         <h1> Loading... </h1>
       )}

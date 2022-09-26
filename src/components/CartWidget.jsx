@@ -4,12 +4,18 @@ import { CartContext } from "../contexts/CartContex";
 
 const CartWidget = () => {
   const { totalItems } = useContext(CartContext);
-
+  console.log(totalItems())
   return (
-    <div className="cart-widget">
-      <Logo fill=" #efd8ff " />
-      <p> {totalItems()}</p>
-    </div>
+    <>
+      {totalItems() > 0 ? (
+        <div className="cart-widget">
+          <div style={{ marginRight: "0.5rem" }}> {totalItems()}</div>
+          <Logo fill=" #efd8ff " />
+        </div>
+      ) : (
+        <div>  </div>
+      )}
+    </>
   );
 };
 

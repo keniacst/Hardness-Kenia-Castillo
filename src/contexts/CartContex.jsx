@@ -10,9 +10,7 @@ const CartProvider = ({ children }) => {
   };
 
   const addItem = (item, quantity) => {
-    isInCart(item.id)
-      ? console.log("Item ya esta en carrito")
-      : setCart([...cart, { ...item, quantity }]);
+    setCart([...cart, { ...item, quantity }]);
   };
 
   const removeItem = (itemId) => {
@@ -39,9 +37,22 @@ const CartProvider = ({ children }) => {
     );
   }
 
+  const quantityItem = (itemId) => {
+    return isInCart(itemId)? cart.filter((it) => it.id === itemId)[0].quantity : 0
+  }
+
+  const replaceItem = (itemId, newQuantity) => {
+    setCart( 
+      cart.map(item => 
+        item.id === itemId ?
+        {...item, quantity: newQuantity}
+        : item)
+    );
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, emptyCart, addItem, removeItem, isInCart, totalCart, totalItems}}
+      value={{ cart, emptyCart, addItem, removeItem, isInCart, totalCart, totalItems, quantityItem, replaceItem}}
     >
       {children}
     </CartContext.Provider>

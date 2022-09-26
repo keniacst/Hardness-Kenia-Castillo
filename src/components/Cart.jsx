@@ -16,7 +16,7 @@ const Cart = ({
       <h1> Cesta de compras </h1>
       {Array.isArray(products) && products.length ? (
         <>
-          <Table hover bordered={false}>
+          <Table bordered={false}>
             <thead>
               <tr>
                 <th></th>

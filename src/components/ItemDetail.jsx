@@ -1,29 +1,38 @@
-import { Button, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import numberWithDots from "../Utils";
-import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContex";
 
 const ItemDetail = ({ img, title, price, id, currency }) => {
-  const [purchase, setPurchase] = useState(false);
-  const { addItem, removeItem, isInCart } = useContext(CartContext);
+  const { addItem, removeItem, isInCart, quantityItem, replaceItem} = useContext(CartContext);
 
   const onAdd = (quantityToAdd) => {
-    setPurchase(true);
-    addItem({ id: id, name: title, price: price, img: img }, quantityToAdd);
+    if (isInCart(id)) {
+      console.log("isInCart + replaceitem")
+      replaceItem(id, quantityToAdd)}
+    else {
+      addItem({ id: id, name: title, price: price, img: img }, quantityToAdd);
+    }
   };
 
   const removeItemClickHandler = () => {
     removeItem(id);
-    setPurchase(false);
   };
 
   const isInCartClickHandler = () => {
-    console.log(isInCart(id));
-  };
+    return isInCart(id);
+  }
+  const initialCount = () => {
+    return isInCart(id)? quantityItem(id) : 1
+  }
+
+  const quantityItemCheck = () => {
+    return quantityItem(id)
+  }
 
   return (
+    
     <>
       {img ? (
         <div className="ItemDetail">
@@ -41,12 +50,12 @@ const ItemDetail = ({ img, title, price, id, currency }) => {
             </div>
             <ItemCount
               onAdd={onAdd}
-              initial={1}
+              initial={initialCount}
               stock={200}
-              purchase={purchase}
               removeItemClickHandler={removeItemClickHandler}
+              isInCartClickHandler={isInCartClickHandler}
+              quantityItemCheck={quantityItemCheck}
             />
-            <Button onClick={isInCartClickHandler}> Is in cart? </Button>
           </div>
         </div>
       ) : (
