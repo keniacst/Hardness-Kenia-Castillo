@@ -9,27 +9,35 @@ import { Link } from "react-router-dom";
 const Navbarlogo = () => {
   return (
     <Navbar className="navb" collapseOnSelect expand="lg" variant="dark">
-      <Container>
+      <Container className="containerr">
         <Navbar.Brand>
           <Link to={process.env.PUBLIC_URL}>
-            <img src={logo} style={{ width: "120px" }} alt="logo" />{" "}
+            <img src={logo} style={{ width: "10rem" }} alt="logo" />{" "}
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to={process.env.PUBLIC_URL}>
+            <Nav.Link
+              as={Link}
+              to={process.env.PUBLIC_URL}
+              style={{ textAlign: "center" }}
+            >
               Inicio
             </Nav.Link>
-            <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-              <NavDropdown.Item as={Link} to={`/category/${"MLC3697"}`}>
-                Audifonos
+            <NavDropdown
+              title="Categorias"
+              id="collasible-nav-dropdown"
+              style={{ textAlign: "center" }}
+            >
+              <NavDropdown.Item as={Link} to={`/category/${"Chokers"}`}>
+                Chokers
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={`/category/${"MLC157688"}`}>
-                Cargadores
+              <NavDropdown.Item as={Link} to={`/category/${"Cadenas"}`}>
+                Cadenas
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={`/category/${"MLC1672"}`}>
-                Hard Drive y SSD
+              <NavDropdown.Item as={Link} to={`/category/${"Aros"}`}>
+                Aros
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>

@@ -1,35 +1,38 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../components/ItemDetail";
+import { getDoc, getFirestore, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const { idProduct } = useParams();
 
-  const getItem = async () => {
-    try {
-      const response = await fetch(
-        `https://api.mercadolibre.com/items/${idProduct}`
-      );
-      let data = await response.json();
-      setProduct(data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   useEffect(() => {
-    getItem();
-  });
+    if (idProduct) {
+      const db = getFirestore();
+      const itemRef = doc(db, "items", idProduct);
+      getDoc(itemRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const newProduct = {
+            id: snapshot.id,
+            ...snapshot.data(),
+          };
+          setProduct(newProduct);
+        }
+      });
+    }
+  }, [idProduct]);
 
   return (
     <>
       <ItemDetail
-        img={product.thumbnail}
         id={product.id}
-        price={product.price}
+        image={product.image}
         title={product.title}
-        currency={product.currency_id}
+        price={product.price}
+        categoryId={product.categoryId}
+        category={product.category}
+        stock={product.stock}
       />
     </>
   );

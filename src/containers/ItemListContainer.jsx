@@ -1,62 +1,48 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../components/ItemList";
-import { CartContext } from "../contexts/CartContex";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const { cart } = useContext(CartContext)
   const [products, setProducts] = useState([]);
-  const [loaded, setLoaded] = useState(false);
   const { idCategory } = useParams();
 
-  const searchProducts = async () => {
-    try {
-      const response = await fetch(
-        "https://api.mercadolibre.com/sites/MLC/search?q=tecnologia$"
-      );
-      let data = await response.json();
-      setProducts(data.results);
-      setLoaded(true);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const byCategory = useCallback(async () => {
-    try {
-      const response = await fetch(
-        `https://api.mercadolibre.com/sites/MLC/search?category=${idCategory}`
-      );
-      let data = await response.json();
-      setProducts(data.results);
-      setLoaded(true);
-    } catch (e) {
-      console.log(e);
-    }
-  }, [idCategory]);
-
   useEffect(() => {
-    console.log(cart)
-    setTimeout( () => {
-      if (typeof idCategory == "undefined") {
-        searchProducts();
-      } else {
-        byCategory();
-      }
-    }, 200);
-    
-  }, [cart, idCategory, byCategory]);
+    const db = getFirestore();
+    const items = collection(db, "items");
+    getDocs(items).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProducts(docs);
+    });
+  }, []);
 
   return (
     <>
-      {loaded? (
-        <> <h1> {typeof idCategory == "undefined"? <> Productos </> : <> {idCategory} </>} </h1>  
-        <div className="ItemListContainer">
-          <ItemList products={products} />
-        </div>
-        </>
-      ) : (
+      {products.length === 0 ? (
         <h1> Loading... </h1>
+      ) : (
+        <>
+          <div className="ItemListContainer">
+            {typeof idCategory != "undefined" ? (
+              <>
+                <h1> {idCategory} </h1>
+                <ItemList
+                  products={products.filter(
+                    (product) => product.category === idCategory
+                  )}
+                />
+              </>
+            ) : (
+              <>
+                <h1> Productos </h1>
+                <ItemList products={products} />
+              </>
+            )}
+          </div>
+        </>
       )}
     </>
   );

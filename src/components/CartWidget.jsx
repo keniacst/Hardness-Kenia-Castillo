@@ -4,7 +4,6 @@ import { CartContext } from "../contexts/CartContex";
 
 const CartWidget = () => {
   const { totalItems } = useContext(CartContext);
-  console.log(totalItems())
   return (
     <>
       {totalItems() > 0 ? (
@@ -13,7 +12,7 @@ const CartWidget = () => {
           <Logo fill=" #efd8ff " />
         </div>
       ) : (
-        <div>  </div>
+        <div> </div>
       )}
     </>
   );

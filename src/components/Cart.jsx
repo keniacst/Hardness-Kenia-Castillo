@@ -16,7 +16,7 @@ const Cart = ({
       <h1> Cesta de compras </h1>
       {Array.isArray(products) && products.length ? (
         <>
-          <Table bordered={false}>
+          <Table responsive bordered={false}>
             <thead>
               <tr>
                 <th></th>
@@ -31,8 +31,12 @@ const Cart = ({
               {products.map((product, index) => {
                 return (
                   <tr key={product.id}>
-                    <td>
-                      <img src={product.img} alt="alt" />{" "}
+                    <td style={{ width: "12rem" }}>
+                      <img
+                        src={product.img}
+                        style={{ width: "inherit" }}
+                        alt="alt"
+                      />
                     </td>
                     <td>
                       <Link to={`/item/${product.id}`} className="no-style">
