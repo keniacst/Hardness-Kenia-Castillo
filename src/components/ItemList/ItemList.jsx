@@ -1,4 +1,4 @@
-import Item from "./Item";
+import Item from "../Item/Item";
 import CardGroup from "react-bootstrap/CardGroup";
 
 const ItemList = (props) => {

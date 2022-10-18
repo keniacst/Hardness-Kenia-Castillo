@@ -1,6 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
 .App {
 	/* text-align: center; */
 	height: 100%;
+	font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Roboto", sans-serif;
+	font-weight: 500 !important;
 }
 
 .App-logo {
@@ -29,7 +42,7 @@
 }
 
 /* Bootstrap button custom */
-.btn-addtocart {
+.btn-purple {
 	--bs-btn-bg: #aa76ff !important;
 	--bs-btn-hover-bg: #532f8f !important;
 	--bs-btn-border-color: #c48ee6 !important;
@@ -40,6 +53,31 @@
 	--bs-btn-disabled-bg: #ba8ed5 !important;
 	--bs-btn-disabled-border-color: #ba8ed5 !important;
 	width: -webkit-fill-available;
+}
+
+.btn-empty {
+	--bs-btn-bg: #c84848 !important;
+	--bs-btn-hover-bg: #9d2525 !important;
+	--bs-btn-border-color: #c84848 !important;
+	--bs-btn-hover-border-color: #c84848 !important;
+	--bs-btn-focus-shadow-rgb: disable !important;
+	--bs-btn-active-bg: #c84848 !important;
+	--bs-btn-active-border-color: #c84848 !important;
+	--bs-btn-disabled-bg: #c84848 !important;
+	--bs-btn-disabled-border-color: #c84848 !important;
+}
+
+.btn-enviar {
+	--bs-btn-bg: #9d65de !important;
+	--bs-btn-hover-bg: #340058 !important;
+	--bs-btn-border-color: #a95eff !important;
+	--bs-btn-hover-border-color: #9d65de !important;
+	--bs-btn-focus-shadow-rgb: disable !important;
+	--bs-btn-active-bg: #9d65de !important;
+	--bs-btn-active-border-color: #9d65de !important;
+	--bs-btn-disabled-bg: #9d65de !important;
+	--bs-btn-disabled-border-color: #9d65de !important;
+	width: 150px;
 }
 
 .btn-deletefromcart {
@@ -90,12 +128,14 @@
 } */
 
 .Card {
-	/* display: flex;
-  align-items: center;
-  width: 300px !important;
-  height: 430px !important;
-  margin: 20px; */
-	/* width: 270px !important; */
+	--bs-card-border-width: 1px;
+	--bs-card-border-color: rgb(255 255 255) !important;
+	--bs-card-border-radius: disabled !important;
+	--bs-card-box-shadow: disabled !important;
+	--bs-card-inner-border-radius: disabled !important;
+	--bs-card-cap-padding-y: 0.5rem !important;
+	--bs-card-cap-padding-x: 1rem !important;
+	/* --bs-card-cap-bg: rgb(245, 234, 245) !important; */
 	height: 100% !important;
 	margin: 0 auto;
 	/* margin-right: 1rem; */
@@ -104,6 +144,10 @@
 	/* height: 100% !important; */
 	/* height: 400px!important; */
 	-webkit-box-shadow: 0px 0px 7px -1px rgb(0 0 0 / 10%);
+}
+
+.Card:hover {
+	-webkit-box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.15);
 }
 
 .item-counter {
@@ -147,19 +191,6 @@
 		flex-wrap: wrap;
 	}
 }
-/* 
-h1 {
-  font-size: 5.9vw;
-}
-h2 {
-  font-size: 3.0vh;
-}
-h3 {
-  font-size: 2.0vh;
-}
-p {
-  font-size: 2vmin;
-} */
 
 .wrapper {
 	width: 500px;
@@ -190,7 +221,7 @@ p {
 .no-style {
 	color: inherit;
 	text-decoration: inherit;
-	--bs-link-hover-color: #5a409c;
+	--bs-link-hover-color: black;
 }
 
 .purchase {
@@ -228,7 +259,7 @@ p {
 }
 
 .back-store {
-	--bs-btn-bg: #c4a2ff !important;
+	--bs-btn-bg: #914fed !important;
 	--bs-btn-color: white !important;
 	/* padding: 1%; */
 	/* padding-inline: inherit; */
@@ -258,4 +289,9 @@ p {
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
+}
+
+.loading {
+	text-align: center;
+	margin-top: 60px;
 }

@@ -1,12 +1,11 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { FaAngellist, FaCheck } from "react-icons/fa";
 import { RiEmotionHappyLine } from "react-icons/ri";
-import { CartContext } from "../contexts/CartContex";
+import { CartContext } from "../../context/CartContex";
 
 const ContactForm = () => {
-	const { cart, totalCart } = useContext(CartContext);
+	const { cart, totalCart, emptyCart } = useContext(CartContext);
 	const [id, setId] = useState();
 	const [form, setForm] = useState({
 		name: "",
@@ -44,6 +43,7 @@ const ContactForm = () => {
 				<>
 					<h3>
 						<RiEmotionHappyLine size={36} className="icon" />
+						{emptyCart()}
 						Pedido realizado!
 					</h3>
 					<div className="empty-cart">

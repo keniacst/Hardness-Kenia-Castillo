@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, CloseButton, Table, ToggleButton } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import numberWithDots from "../Utils";
+import numberWithDots from "../../utils/Utils";
 import { BsFillBagFill, BsX } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -66,7 +66,7 @@ const Cart = ({
 						</tbody>
 					</Table>
 					<div className="vaciar-finalizar">
-						<Button onClick={emptyCartClickHandler}>
+						<Button onClick={emptyCartClickHandler} className="btn-empty">
 							<BsX /> Vaciar carrito
 						</Button>
 						<Link to={`/contactform`}>

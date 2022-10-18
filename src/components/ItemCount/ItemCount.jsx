@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Counter from "./Counter";
+import Counter from "../Counter/Counter";
 import { FaCheck, FaTrash } from "react-icons/fa";
 const ItemCount = ({
 	stock,
@@ -43,7 +43,7 @@ const ItemCount = ({
 				</>
 			) : (
 				<Button
-					className="btn-addtocart"
+					className="btn-purple"
 					onClick={() => {
 						onAdd(count);
 					}}

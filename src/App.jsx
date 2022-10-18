@@ -1,11 +1,11 @@
-import "./App.css";
-import Navbarlogo from "./components/NavbarLogo";
+import "./assets/App.css";
+import Navbarlogo from "./components/NavbarLogo/NavbarLogo";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartContainer from "./containers/CartContainer";
-import { CartProvider } from "./contexts/CartContex";
+import { CartProvider } from "./context/CartContex";
 import ItemListContainer from "./containers/ItemListContainer.jsx";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
-import ContactForm from "./components/ContactForm";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 const App = () => {
 	return (

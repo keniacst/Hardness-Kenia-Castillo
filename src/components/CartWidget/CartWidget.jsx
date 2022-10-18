@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ReactComponent as Logo } from "../assets/cart.svg";
-import { CartContext } from "../contexts/CartContex";
+import { ReactComponent as Cart } from "../../assets/cart.svg";
+import { CartContext } from "../../context/CartContex";
 
 const CartWidget = () => {
 	const { totalItems } = useContext(CartContext);
@@ -9,7 +9,7 @@ const CartWidget = () => {
 			{totalItems() > 0 ? (
 				<div className="cart-widget">
 					<div style={{ marginRight: "0.5rem" }}> {totalItems()}</div>
-					<Logo fill=" #efd8ff " />
+					<Cart fill=" #efd8ff " />
 				</div>
 			) : (
 				<div> </div>
