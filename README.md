@@ -4,7 +4,7 @@ Proyecto simple de un e-commerce realizado en React. Cuenta con página principa
 
 ## Construido con 🛠️
 
-- [React](https://es.reactjs.org/) - El framework web utilizado
+- [React](https://es.reactjs.org/) - Framework web utilizado
 - [React Bootstrap](https://react-bootstrap.github.io/) - Librería de CSS y componentes
 - [React Icons](https://github.com/react-icons/react-icons) - Iconos
 
@@ -14,7 +14,7 @@ Proyecto simple de un e-commerce realizado en React. Cuenta con página principa
 - La información del formulario de compra es almacenada en Firestore.
 - No se ha implementado la autentificación de usuarios.
 
-## Autores ✒️
+## Autor ✒️
 
 - **Kenia Castillo** - _Proyecto completo_ - [keniacst](https://github.com/keniacst)
 
