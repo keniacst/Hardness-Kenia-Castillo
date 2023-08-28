@@ -2,7 +2,7 @@
   "name": "hardness",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://keniacst.github.io/Hardness-Kenia-Castillo/update",
+  "homepage": "https://keniacst.github.io/Hardness-Kenia-Castillo",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -10,7 +10,6 @@
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
     "firebase": "^9.10.0",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -45,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
