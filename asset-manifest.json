@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/Hardness-Kenia-Castillo/static/css/main.d275c2d9.css",
-    "main.js": "/Hardness-Kenia-Castillo/static/js/main.d9c746b6.js",
+    "main.css": "/Hardness-Kenia-Castillo/static/css/main.ca65fa89.css",
+    "main.js": "/Hardness-Kenia-Castillo/static/js/main.1a71c778.js",
     "static/js/787.16d89854.chunk.js": "/Hardness-Kenia-Castillo/static/js/787.16d89854.chunk.js",
+    "static/media/logoblanco.png": "/Hardness-Kenia-Castillo/static/media/logoblanco.b98b148301bd0e9bdac6.png",
     "index.html": "/Hardness-Kenia-Castillo/index.html",
-    "main.d275c2d9.css.map": "/Hardness-Kenia-Castillo/static/css/main.d275c2d9.css.map",
-    "main.d9c746b6.js.map": "/Hardness-Kenia-Castillo/static/js/main.d9c746b6.js.map",
+    "static/media/cart.svg": "/Hardness-Kenia-Castillo/static/media/cart.6a84420eddee2880f2f4a2bfa72e3240.svg",
+    "main.ca65fa89.css.map": "/Hardness-Kenia-Castillo/static/css/main.ca65fa89.css.map",
+    "main.1a71c778.js.map": "/Hardness-Kenia-Castillo/static/js/main.1a71c778.js.map",
     "787.16d89854.chunk.js.map": "/Hardness-Kenia-Castillo/static/js/787.16d89854.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d275c2d9.css",
-    "static/js/main.d9c746b6.js"
+    "static/css/main.ca65fa89.css",
+    "static/js/main.1a71c778.js"
   ]
 }
