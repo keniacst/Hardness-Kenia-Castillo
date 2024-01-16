@@ -1,2 +1,2 @@
 # Github Pages Branch
-You can see the full project in main branch :shipit:
+You can see the full project in master branch :shipit:
